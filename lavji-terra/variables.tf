@@ -1,4 +1,4 @@
-variable "project" { }
+variable "project" {}
 
 variable "credentials_file" {}
 
@@ -10,7 +10,12 @@ variable "zone" {
   default = "us-central1-c"
 }
 
-variable "public_subnet_cidr_1" {
+variable "public_subnet_cidr" {
   type        = string
-  description = "Public subnet CIDR 1"
+  description = "Public subnet CIDR"
+}
+
+variable "dev_subnet" {
+  type        = string
+  description = "Dev subnet CIDR"
 }

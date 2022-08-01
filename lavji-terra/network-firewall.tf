@@ -7,7 +7,9 @@ resource "google_compute_firewall" "allow-http" {
     ports    = ["80"]
   }
   target_tags = ["http"]
-} # allow https traffic
+}
+
+# allow https traffic
 resource "google_compute_firewall" "allow-https" {
   name    = "${var.project}-fw-allow-https"
   network = google_compute_network.vpc.name
@@ -16,7 +18,9 @@ resource "google_compute_firewall" "allow-https" {
     ports    = ["443"]
   }
   target_tags = ["https"]
-} # allow ssh traffic
+}
+
+# allow ssh traffic
 resource "google_compute_firewall" "allow-ssh" {
   name    = "${var.project}-fw-allow-ssh"
   network = google_compute_network.vpc.name
@@ -25,7 +29,9 @@ resource "google_compute_firewall" "allow-ssh" {
     ports    = ["22"]
   }
   target_tags = ["ssh"]
-} # allow rdp traffic
+}
+
+# allow rdp traffic
 resource "google_compute_firewall" "allow-rdp" {
   name    = "${var.project}-fw-allow-rdp"
   network = google_compute_network.vpc.name
