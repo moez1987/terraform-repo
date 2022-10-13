@@ -1,4 +1,4 @@
-variable "project" { }
+variable "project" {}
 
 variable "credentials_file" {}
 

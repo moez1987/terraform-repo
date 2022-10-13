@@ -12,9 +12,9 @@ terraform {
 
 provider "google" {
   credentials = file(var.credentials_file)
-  project     = "var.project"
-  region      = "var.region"
-  zone        = "var.zone"
+  project     =  var.project
+  region      =  var.region
+  zone        =  var.zone
 }
 ////////////Provider////////////////
 
@@ -24,16 +24,17 @@ provider "google" {
 
 resource "google_compute_instance" "vm_instance" {
   name         = "terraform-instance"
-  machine_type = "f1-micro"
+  machine_type = "n1-standard-1"
 
   boot_disk {
     initialize_params {
-      image = "debian-cloud/debian-9"
+      image     =  "centos-7-v20180129" 
     }
   }
 
   network_interface {
-    network = google_compute_network.vpc.name
+    network = "default"
+    subnetwork = "default"
     access_config {
     }
   }
